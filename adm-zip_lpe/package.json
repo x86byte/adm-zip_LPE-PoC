@@ -1,0 +1,8 @@
+{
+  "name": "adm-zip-lpe",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "adm-zip": "0.6.0"
+  }
+}
