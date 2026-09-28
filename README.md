@@ -1,4 +1,8 @@
-# GHSA-679w-jf3m-wh39: adm-zip Local Privilege Escalation via SUID Preservation
+# CVE-2026-102282 / GHSA-679w-jf3m-wh39: adm-zip Local Privilege Escalation via SUID Preservation
+
+[![CVE](https://img.shields.io/badge/CVE-2026--102282-red.svg)](https://www.cve.org/CVERecord?id=CVE-2026-102282)
+[![GHSA](https://img.shields.io/badge/GHSA-679w--jf3m--wh39-orange.svg)](https://github.com/cthackers/adm-zip/security/advisories/GHSA-679w-jf3m-wh39)
+[![CVSS](https://img.shields.io/badge/CVSS%203.1-7.1%20High-critical.svg)](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N)
 
 ## Description
 
@@ -46,7 +50,7 @@ The issue triggers when `keepOriginalPermission` is enabled during extraction:
 ```javascript
 // adm-zip.js
 const fileAttr = keepOriginalPermission ? entry.header.fileAttr : undefined;
-filetools.writeFileTo(entryName, content, overwrite, fileAttr);
+filetools.writeToFile(entryName, content, overwrite, fileAttr);
 ```
 
 In `util/utils.js`, the extracted attribute was passed directly to the filesystem without validation:
@@ -141,8 +145,10 @@ stat -c "%a %A %U:%G" /var/tmp/poc_out/tools/helper
 
 ## Security Advisory Record
 
-* Advisory: [GHSA-679w-jf3m-wh39](https://github.com/cthackers/adm-zip/security/advisories/GHSA-679w-jf3m-wh39)
-* Discoverer / Credit: Zakariae Tafjouti (@x86byte)
-* Severity: High (CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N - Base Score 7.1)
-* Classification: CWE-732 (Incorrect Permission Assignment for Critical Resource)
-* Release Status: Coordinated disclosure, patched in upstream release `0.6.1`
+* **CVE ID:** [CVE-2026-102282](https://www.cve.org/CVERecord?id=CVE-2026-102282)
+* **GitHub Advisory:** [GHSA-679w-jf3m-wh39](https://github.com/cthackers/adm-zip/security/advisories/GHSA-679w-jf3m-wh39)
+* **NVD Entry:** [NVD Detail](https://nvd.nist.gov/vuln/detail/CVE-2026-102282)
+* **Discoverer / Credit:** Zakariae Tafjouti (@x86byte)
+* **Severity:** High (`CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N` - Base Score 7.1)
+* **Classification:** CWE-732 (Incorrect Permission Assignment for Critical Resource)
+* **Release Status:** Coordinated disclosure, patched in upstream release `0.6.1`
