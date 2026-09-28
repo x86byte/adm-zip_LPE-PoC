@@ -1,4 +1,4 @@
-# CVE-2026-102282 / GHSA-679w-jf3m-wh39: adm-zip Local Privilege Escalation via SUID Preservation
+# CVE-2026-102282: adm-zip Local Privilege Escalation via SUID Preservation
 
 [![CVE](https://img.shields.io/badge/CVE-2026--102282-red.svg)](https://www.cve.org/CVERecord?id=CVE-2026-102282)
 [![GHSA](https://img.shields.io/badge/GHSA-679w--jf3m--wh39-orange.svg)](https://github.com/cthackers/adm-zip/security/advisories/GHSA-679w-jf3m-wh39)
