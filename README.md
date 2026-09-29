@@ -19,7 +19,7 @@ When an application extracts an untrusted ZIP archive with `keepOriginalPermissi
 
 ## The Bug
 
-In the PKWARE ZIP format specification, Unix file permissions are stored in the 32-bit `external file attributes` field of the Central Directory Header (bytes 38–41). On Unix-compatible archives, the upper 16 bits encode the file type and the 12-bit POSIX permission mode (`0o7777`).
+In the PKWARE ZIP format specification, Unix file permissions are stored in the 32-bit `external file attributes` field of the Central Directory Header (bytes 38-41). On Unix-compatible archives, the upper 16 bits encode the file type and the 12-bit POSIX permission mode (`0o7777`).
 
 In versions `<= 0.6.0`, `headers/entryHeader.js` used a 12-bit bitmask (`0xfff`):
 
@@ -109,7 +109,7 @@ $ /var/local/poc_out_patched/tools/helper
 
 ## Impact
 
-Local Privilege Escalation (CWE-732). In environments where untrusted ZIP files are processed with elevated privileges—such as automated build agents, shared hosting environments, serverless container initialization routines, and plugin installation frameworks—an unprivileged user can supply a crafted archive to plant an arbitrary root-owned SUID binary, achieving full root compromise on the host.
+When untrusted ZIP files are processed with elevated privileges—such as automated build agents, shared hosting environments, serverless container initialization routines, and plugin installation frameworks—an unprivileged user can supply a crafted archive to plant an arbitrary root-owned SUID binary, leading to **Local Privilege Escalation (LPE)** and arbitrary code execution as **root**.
 
 ## How to Run
 
@@ -150,5 +150,5 @@ stat -c "%a %A %U:%G" /var/tmp/poc_out/tools/helper
 * **NVD Entry:** [NVD Detail](https://nvd.nist.gov/vuln/detail/CVE-2026-102282)
 * **Discoverer / Credit:** Zakariae Tafjouti (@x86byte)
 * **Severity:** High (`CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N` - Base Score 7.1)
-* **Classification:** CWE-732 (Incorrect Permission Assignment for Critical Resource)
+* **Weakness (CWE):** CWE-732 (Incorrect Permission Assignment for Critical Resource)
 * **Release Status:** Coordinated disclosure, patched in upstream release `0.6.1`
