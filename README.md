@@ -3,6 +3,7 @@
 [![CVE](https://img.shields.io/badge/CVE-2026--102282-red.svg)](https://www.cve.org/CVERecord?id=CVE-2026-102282)
 [![GHSA](https://img.shields.io/badge/GHSA-679w--jf3m--wh39-orange.svg)](https://github.com/cthackers/adm-zip/security/advisories/GHSA-679w-jf3m-wh39)
 [![CVSS](https://img.shields.io/badge/CVSS%203.1-7.1%20High-critical.svg)](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N)
+[![Technical Writeup](https://img.shields.io/badge/Writeup-x86byte.github.io-blue.svg)](https://x86byte.github.io/#/research/adm-zip-lpe-cve-2026-102282)
 
 ## Description
 
@@ -116,7 +117,8 @@ When untrusted ZIP files are processed with elevated privileges—such as automa
 1. Build the verification binary and package the crafted archive:
 
 ```bash
-cd adm-zip_lpe
+git clone https://github.com/x86byte/adm-zip_LPE-PoC.git
+cd adm-zip_LPE-PoC/adm-zip_lpe
 g++ -O2 Verify.cpp -o Verify
 node BuildZip.js Verify exploit.zip tools/helper
 ```
@@ -148,7 +150,8 @@ stat -c "%a %A %U:%G" /var/tmp/poc_out/tools/helper
 * **CVE ID:** [CVE-2026-102282](https://www.cve.org/CVERecord?id=CVE-2026-102282)
 * **GitHub Advisory:** [GHSA-679w-jf3m-wh39](https://github.com/cthackers/adm-zip/security/advisories/GHSA-679w-jf3m-wh39)
 * **NVD Entry:** [NVD Detail](https://nvd.nist.gov/vuln/detail/CVE-2026-102282)
-* **Discoverer / Credit:** Zakariae Tafjouti (@x86byte)
+* **Technical Writeup:** [https://x86byte.github.io/#/research/adm-zip-lpe-cve-2026-102282](https://x86byte.github.io/#/research/adm-zip-lpe-cve-2026-102282)
+* **Discoverer / Credit:** Zakariae Tafjouti ([@x86byte](https://github.com/x86byte))
 * **Severity:** High (`CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N` - Base Score 7.1)
 * **Weakness (CWE):** CWE-732 (Incorrect Permission Assignment for Critical Resource)
 * **Release Status:** Coordinated disclosure, patched in upstream release `0.6.1`
