@@ -149,7 +149,6 @@ stat -c "%a %A %U:%G" /var/tmp/poc_out/tools/helper
 * **CVE ID:** [CVE-2026-102282](https://www.cve.org/CVERecord?id=CVE-2026-102282)
 * **GitHub Advisory:** [GHSA-679w-jf3m-wh39](https://github.com/cthackers/adm-zip/security/advisories/GHSA-679w-jf3m-wh39)
 * **NVD Entry:** [NVD Detail](https://nvd.nist.gov/vuln/detail/CVE-2026-102282)
-* **Discoverer / Credit:** Zakariae Tafjouti (@x86byte)
 * **Severity:** High (`CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N` - Base Score 7.1)
 * **Weakness (CWE):** CWE-732 (Incorrect Permission Assignment for Critical Resource)
 * **Release Status:** Coordinated disclosure, patched in upstream release `0.6.1`
